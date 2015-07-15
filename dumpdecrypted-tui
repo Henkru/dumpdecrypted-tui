@@ -1,0 +1,23 @@
+#!/bin/bash
+
+FILEPATH="/var/mobile/Applications"
+APPS=$FILEPATH/*/*.app
+DUMPER="dumpdecrypted.dylib"
+
+APPSNAME=""
+for FILE in $APPS
+do
+	APPSNAME=$APPSNAME`basename "$FILE"`$'\n' 
+done
+
+OIFS="$IFS"
+IFS=$'\n'
+echo "Select the encrypted App"
+select FILE in $APPSNAME;
+do
+     APPNAME="${FILE%.*}"
+     DYLD_INSERT_LIBRARIES=$DUMPER $FILEPATH/*/$FILE/$APPNAME mach-o decryption dumper
+
+     break
+done
+IFS="$OIFS"
