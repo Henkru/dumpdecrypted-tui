@@ -6,7 +6,7 @@ Usage:
 iPhone:~ root# ./dumpdecrypted-tui
 Select the encrypted App
 1) MobileMail.app	           7) DDActionsService.app
-2) WebContentAnalysisUI.app     8) MobileSafari.app
+2) WebContentAnalysisUI.app  8) MobileSafari.app
 3) Calculator.app	           9) Scan.app
 4) WebViewService.app	      10) Web.app
 5) StoreKitUIService.app
